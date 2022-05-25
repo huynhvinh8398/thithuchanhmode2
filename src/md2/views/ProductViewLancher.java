@@ -31,7 +31,7 @@ public class ProductViewLancher {
                         productView.remove();
                         break;
                     case 5:
-                        productView.sortByPriceOrderByDESC();
+                        productView.sortsByPriceOrderByASC();
                         break;
                     case 6:
                         break;

@@ -55,6 +55,7 @@ public class ProductService implements IProductService {
                 Double price = newProduct.getPrice();
                 if (price != null)
                     product.setPrice(price);
+                 CSVUntils.write(path, products);
             }
         }
     }

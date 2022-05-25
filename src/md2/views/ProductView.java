@@ -25,7 +25,7 @@ public class ProductView {
                     product.getName(),
                     ApUntils.doubleToVND(product.getPrice()),
                     product.getQuantity(),
-                    product.getName()
+                    product.getDescription()
             );
         }
         System.out.println("--------------------------------------------------------------------------------------------------------------------------\n");
@@ -63,10 +63,12 @@ public class ProductView {
             System.out.println("      Chọn chức năng:                     ");
             int option = ApUntils.retryChoose(1, 5);
             Product newProduct = new Product();
-           // newProduct.setId(id);
+            newProduct.setId(id);
+
             switch (option) {
                 case 1:
                     String name = inputName(InputOption.UPDATE);
+
                     newProduct.setName(name);
                     productService.update(newProduct);
                     System.out.println("Tên sản phẩm đã cập nhật thành công");
@@ -132,10 +134,12 @@ public class ProductView {
     private String inputTitle(InputOption option) {
         switch (option) {
             case ADD:
-                System.out.println("Nhập tên sản phẩm: ");
+//                System.out.println("Nhập tên sản phẩm: ");
+                add();
                 break;
             case UPDATE:
-                System.out.println("Nhập tên bạn muốn sửa: ");
+//                System.out.println("Nhập tên bạn muốn sửa: ");
+                update();
                 break;
         }
         String result;
