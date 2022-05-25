@@ -256,7 +256,7 @@ public class ProductView {
                     product.getName(),
                     ApUntils.doubleToVND(product.getPrice()),
                     product.getQuantity(),
-                    product.getName()
+                    product.getDescription()
             );
         }
         System.out.println("-------------------------------------------------------------------------------------------------------------------------\n");
