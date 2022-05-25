@@ -1,6 +1,7 @@
 package md2.utils;
 
 import md2.views.InputOption;
+import md2.views.ProductViewLancher;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -60,6 +61,9 @@ public class ApUntils {
             System.out.print(" ⭆ ");
             String option = scanner.nextLine();
             switch (option) {
+                case "q":
+                    ProductViewLancher.run();
+                    break;
                 case "y":
                     return true;
                 case "b":
