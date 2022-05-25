@@ -3,14 +3,14 @@ package md2.model;
 public class Product {
   private long id;
   private String name;
-  private double price;
-  private int quantity;
+  private Double price;
+  private Integer quantity;
   private String description;
   // hàm khởi tạo
    public Product(){
 
    };
-    public Product(long id, String name, double price, int quantity, String description) {
+    public Product(long id, String name, Double price, Integer quantity, String description) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -35,19 +35,19 @@ public class Product {
         this.name = name;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 

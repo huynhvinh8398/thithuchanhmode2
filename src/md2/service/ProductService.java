@@ -43,9 +43,9 @@ public class ProductService implements IProductService {
         List<Product> products = findAll();
         for (Product product : products) {
             if (product.getId() == newProduct.getId()) {
-                String title = newProduct.getName();
+                String name = newProduct.getName();
 
-                if (title != null && !title.isEmpty())
+                if (name != null && !name.isEmpty())
                     product.setName(newProduct.getName());
 
                 Integer quantity = newProduct.getQuantity();
@@ -55,9 +55,14 @@ public class ProductService implements IProductService {
                 Double price = newProduct.getPrice();
                 if (price != null)
                     product.setPrice(price);
-                 CSVUntils.write(path, products);
+
+                String description = newProduct.getDescription();
+                if (description != null && description.isEmpty())
+                    product.setDescription(description);
+                CSVUntils.write(path, products);
             }
         }
+
     }
 
     @Override

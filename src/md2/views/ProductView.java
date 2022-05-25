@@ -77,7 +77,7 @@ public class ProductView {
                     int quantity = inputQuantity(InputOption.UPDATE);
                     newProduct.setQuantity(quantity);
                     productService.update(newProduct);
-                    System.out.println("Số lượng giày đã cập nhật thành công");
+                    System.out.println("Số lượng đã cập nhật thành công");
                     break;
                 case 3:
                     double price = inputPrice(InputOption.UPDATE);
@@ -275,6 +275,49 @@ public class ProductView {
     public void sortByPriceOrderByDESC() {
         showProductsSort(InputOption.SHOW, productService.findAllOrderByPriceDESC());
     }
+     //tìm sản phẩm có giá cao nhất
+    public void findProductByTheMostPrice() {
+        List<Product> products = productService.findAll();
+        Product maxProduct = products.get(0);
+
+        for (int i = 1; i < products.size(); i++) {
+            if (maxProduct.getPrice() < products.get(i).getPrice()) {
+                maxProduct = products.get(i);
+            }
+        }
+        System.out.println("--------------------------------------DANH SÁCH ỨNG VỚI TÊN SẢN PHẨM----------------------------------------");
+        System.out.printf("%-18s %-20s %-18s %-18s %-18s", "Id", "Tên sản phẩm", "Giá", "Số lượng","Mô tả");
+        System.out.printf("\n%-18s %-20s %-18s %-18s %-18s",
+                maxProduct.getId(),
+                maxProduct.getName(),
+                ApUntils.doubleToVND(maxProduct.getPrice()),
+                maxProduct.getQuantity(),
+                maxProduct.getQuantity()
+        );
 
 
-}
+    }
+    //tim sản phẩm có giá thấp nhất
+    public void findProductByTheMinPrice() {
+        List<Product> products = productService.findAll();
+        Product minProduct = products.get(0);
+
+        for (int i = 1; i < products.size(); i++) {
+            if (minProduct.getPrice() > products.get(i).getPrice()) {
+                minProduct = products.get(i);
+            }
+        }
+        System.out.println("--------------------------------------DANH SÁCH ỨNG VỚI TÊN SẢN PHẨM----------------------------------------");
+        System.out.printf("%-18s %-20s %-18s %-18s %-18s", "Id", "Tên sản phẩm", "Giá", "Số lượng","Mô tả");
+        System.out.printf("\n%-18s %-20s %-18s %-18s %-18s",
+                minProduct.getId(),
+                minProduct.getName(),
+                ApUntils.doubleToVND(minProduct.getPrice()),
+                minProduct.getQuantity(),
+                minProduct.getQuantity()
+        );
+
+
+    }
+    }
+

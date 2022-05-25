@@ -1,12 +1,16 @@
 package md2.views;
 
+import md2.service.ProductService;
 import md2.utils.ApUntils;
+import md2.utils.CSVUntils;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ProductViewLancher {
     Scanner scanner =new Scanner(System.in);
+    static String path = "thithuchanhmode2/data/products.csv";
+    private ProductService productService ;
     public static void run() {
         int number;
         do {
@@ -34,10 +38,15 @@ public class ProductViewLancher {
                         productView.sortsByPriceOrderByASC();
                         break;
                     case 6:
+                        productView.findProductByTheMostPrice();
                         break;
                     case 7:
+                       CSVUntils.read(path);
+                        System.out.println("đọc từ file products.csv");
                         break;
                     case 8:
+                        CSVUntils.write(path, ProductService.getInstance().findAll());
+
                         break;
                     case 9:
                         ApUntils.exit();
